@@ -14,5 +14,28 @@ Globals:
 Resources:
     S3bucket:
      Type: AWS::S3::Bucket
+     Properties:
+       BucketName: aws-rc-cloud
+       AccessControl: PublicRead
+       WebsiteConfiguration:
+         IndexDocument: index.html
 
+    bucketpolicy:
+     Type: AWS::S3::BucketPolicy
+     Properties:
+       Bucket: !Ref S3bucket
+       PolicyDocument:
+         Id: aws-clou-rc
+         Vesion: 2012-10-17
+         Statement:
+         - Sid: PublicReadForGetBucketObjects
+           Effect: Allow
+           Action: "s3:GetObject"
+           Resource: !Join 
+           - ""
+           - - "arn:aws:s3:::"
+             - !Ref S3bucket
+             - /*
+         
+         
 

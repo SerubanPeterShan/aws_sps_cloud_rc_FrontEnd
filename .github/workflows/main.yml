@@ -5,8 +5,10 @@ jobs:
     build-infra:
       runs-on: ubuntu-latest
       timeout-minutes: 2
-      steps: 
+      steps:
          - uses: actions/checkout@v2
          - uses: actions/setup-pyhton@v2
-         - uses: aws-actions/seups-sam@1
-         - uses: 
+         - uses: aws-actions/setups-sam@1
+         - uses: aws-actions/configure-aws-credentials@v1
+           with: 
+            aws-access-key-id: 

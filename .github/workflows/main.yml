@@ -40,6 +40,9 @@ jobs:
               echo "** Running Terraform Init**"
               terraform init
 
+              echo "** Running Terraform Format**"
+              terraform fmt
+
               echo "** Running Terraform Validate**"
               terraform validate
 

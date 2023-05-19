@@ -51,7 +51,7 @@ jobs:
               terraform plan
 
               echo "** Runnning Terraform Apply**"
-              terraform apply
+              terraform apply -auto-approve
             working-directory: ${{github.event.inputs.tfpath}}
          -  name: Terraform Destroy
             run: |

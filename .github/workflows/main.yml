@@ -1,14 +1,34 @@
-name: main
-on: push
-
+name: "Aws_Frontend_git_Action"
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      tfpath:
+        description: 'TF FILE Path'
+        required: false
+        default: 'Front_end_Automation'
+env:
+  TF_LOG: INFO
+  AWS_REGION: ${{ secrets.AWS_REGION }}
 jobs:
     build-infra:
       runs-on: ubuntu-latest
       timeout-minutes: 2
+      if: ${{inputs.tfpath}}
       steps:
-         - uses: actions/checkout@v2
-         - uses: actions/setup-pyhton@v2
-         - uses: aws-actions/setups-sam@1
-         - uses: aws-actions/configure-aws-credentials@v1
-           with: 
-            aws-access-key-id: 
+         - uses: actions/checkout@v2.5.0
+
+         - name: Configure AWS Credentials Action For GitHub Actions
+           uses: aws-actions/configure-aws-credentials@v1
+           with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.AWS_REGION}}
+
+         -  name: Setup Terraform CLI
+            uses: hashicorp/setup-terraform@v2.0.2

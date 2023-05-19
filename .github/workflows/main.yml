@@ -11,7 +11,7 @@ on:
       tfpath:
         description: 'TF FILE Path'
         required: false
-        default: './Front_end_Automation'
+        default: 'Front_end_Automation'
 env:
   TF_LOG: INFO
   AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -19,7 +19,7 @@ jobs:
     build-infra:
       runs-on: ubuntu-latest
       timeout-minutes: 2
-      if:  ${{ inputs.tfpath }}
+
       steps:
          - uses: actions/checkout@v2.5.0
 
@@ -35,6 +35,7 @@ jobs:
 
          -  name: terraform Init,plan and apply
             run: |
+              cd Front_end_Automation
               echo `pwd`
               echo "tfpath ${{ github.event.inputs.tfpath }}"
               echo "** Running Terraform Init**"

@@ -49,6 +49,9 @@ jobs:
 
               echo "** Running Terraform Plan**"
               terraform plan
+
+              echo "** Runnning Terraform Apply**"
+              terraform apply
             working-directory: ${{github.event.inputs.tfpath}}
          -  name: Terraform Destroy
             run: |

@@ -11,7 +11,7 @@ on:
       tfpath:
         description: 'TF FILE Path'
         required: false
-        default: 'Front_end_Automation'
+        default: './Front_end_Automation'
 env:
   TF_LOG: INFO
   AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -49,3 +49,9 @@ jobs:
               echo "** Running Terraform Plan**"
               terraform plan
             working-directory: ${{github.event.inputs.tfpath}}
+         -  name: Terraform Destroy
+            run: |
+              echo "** Running Terraform Destroy**"
+              terraform plan -destroy
+      #        terraform destroy -auto-approve
+            working-directory: ${{ github.event.inputs.tfpath }}

@@ -3,9 +3,10 @@ resource "aws_s3_bucket" "S3bucket" {
     tags = {
         Name = "sps rccloud aws"
     }
-}
-resource "aws_s3_account_public_access_block" "S3bucketpublic" {
 
+}
+resource "aws_s3_bucket_public_access_block" "S3bucketpublic" {
+  bucket = "aws-rc-cloud"
   block_public_acls = false
   block_public_policy = false
   ignore_public_acls = false

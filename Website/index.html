@@ -183,15 +183,15 @@
           <div class="about-descr">
 
             <p class="p-heading">Creating a Fast and Reliable Website on Amazon Web Services with S3 Bucket, CloudFront, Lambda, DynamoDB, and API Gateway </p>
-            <p class="separator">My website is designed and hosted in Amazon Web Services (AWS), providing fast and reliable access to users around the world. To store my website, I am using an AWS S3 bucket, which allows me to easily store and serve static website files, such as HTML, CSS, and JavaScript.
+            <p class="separator">Building and maintaining a website on Amazon Web Services (AWS) provides a robust and scalable infrastructure. My website is designed and hosted within AWS, with the site's files securely stored in an AWS S3 bucket. To optimize content delivery and improve performance, I leverage AWS CloudFront, which serves as a global content delivery network (CDN) and acts as the intermediary between my website and users worldwide.
 
-              To ensure that my website is always fast and responsive, I am using AWS CloudFront, a content delivery network that distributes my website's content to edge locations around the world. This provides low latency and high performance for my website users, regardless of their location.
+              To track visitor counts and gain valuable insights, I have implemented a serverless architecture using AWS Lambda and DynamoDB. With a Lambda function, I retrieve the visitor count from DynamoDB and increment it whenever a user accesses my website. This real-time tracking enables me to monitor traffic patterns and make informed decisions to enhance the user experience.
 
-              To track visitor counts to my website, I have created a Python function in Lambda using AWS. The function retrieves the current visitor count from DynamoDB, AWS's NoSQL database service, and increments it each time a new user accesses my website. This allows me to keep track of how many users are accessing my website at any given time, and provides valuable insights into user behavior and traffic patterns.
+              To ensure seamless integration between my website and the serverless architecture, AWS API Gateway triggers the Lambda function upon user requests. This enables efficient communication between different components, providing a smooth and interactive browsing experience for visitors.
 
-              To make the Lambda function accessible to my website, I am using AWS API Gateway, which creates RESTful APIs that can be called from my website's frontend or backend. This allows me to seamlessly integrate the visitor count data into my website and display it to users in a meaningful way.
+              Moreover, I have taken steps to automate the frontend of my website using Terraform and GitHub Actions. By leveraging infrastructure as code, I can easily manage and deploy my website resources with reproducibility and consistency. While I continue to work on automating the backend processes of my website, these automation practices streamline my development workflow and enhance overall efficiency.
 
-              Overall, using AWS, S3 bucket, CloudFront, Lambda, DynamoDB, and API Gateway, I am able to host a fast, reliable, and scalable website that provides a great user experience for my visitors.  </p>
+              In conclusion, building a website on AWS using S3 Bucket, CloudFront, Lambda, DynamoDB, API Gateway, Terraform, and GitHub Actions offers scalability, real-time visitor tracking, and automation capabilities, allowing me to create a reliable and optimized web presence.  </p>
 
           </div>
 

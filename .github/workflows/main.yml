@@ -19,7 +19,7 @@ jobs:
     build-infra:
       runs-on: ubuntu-latest
       timeout-minutes: 2
-      if: ${{inputs.tfpath}}
+
       steps:
          - uses: actions/checkout@v2.5.0
 

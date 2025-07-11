@@ -12,11 +12,16 @@ on:
         description: 'TF FILE Path'
         required: false
         default: 'Front_end_Automation'
+      run_build_infra:
+        description: 'TF FILE Path'
+        required: false
+        default: 'false'
 env:
   TF_LOG: INFO
   AWS_REGION: ${{ secrets.AWS_REGION }}
 jobs:
     build-infra:
+      if: (github.event_name == 'workflow_dispatch' && github.event.inputs.run_build_infra == 'true')
       runs-on: ubuntu-latest
       timeout-minutes: 2
 
@@ -35,7 +40,7 @@ jobs:
 
          -  name: terraform Init,plan and apply
             run: |
-              cd Front_end_Automation
+              cd ./Front_end_Automation
               echo `pwd`
               echo "tfpath ${{ github.event.inputs.tfpath }}"
               echo "** Running Terraform Init**"
